@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/products")
@@ -27,6 +29,8 @@ public class ProductController {
     public Iterable<Product> getProducts() {
         return productService.getAllProducts();
     }
+
+
 
     @PostMapping
     public ResponseEntity<?> addProduct(@ModelAttribute Product product, @RequestParam("file") MultipartFile file) {

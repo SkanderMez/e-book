@@ -3,6 +3,7 @@ package com.quest.etna.controller;
 import com.quest.etna.dto.OrderProductDto;
 import com.quest.etna.model.Order;
 import com.quest.etna.model.OrderProduct;
+import com.quest.etna.model.Product;
 import com.quest.etna.model.User;
 import com.quest.etna.service.OrderProductService;
 import com.quest.etna.service.OrderService;
@@ -36,6 +37,19 @@ public class OrderController {
     UserService userService;
 
 
+    @GetMapping("/{orderId}")
+    public List<OrderProductDto> getProductsByOrderId(@PathVariable Long orderId) {
+        List<OrderProduct> orderProducts = orderProductService.findAllByOrderId(orderId);
+        List<OrderProductDto> products = new ArrayList<>();
+        orderProducts.forEach(orderProduct -> {
+            try {
+                products.add(new OrderProductDto(productService.getProduct(orderProduct.getPk().getOrder().getId()),orderProduct.getQuantity()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        return products;
+    }
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Iterable<Order> list() {
