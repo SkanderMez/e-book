@@ -16,4 +16,8 @@ export class OrderService {
     return this.http.post(BASE_API + ORDER, order);
   }
 
+  getAllProductsByOrderId(orderId: any) {
+    return this.http.get(BASE_API + ORDER + '/' + orderId);
+  }
+
 }

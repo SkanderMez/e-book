@@ -24,6 +24,8 @@ import {JwtInterceptor} from './_interceptors/jwt.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +43,8 @@ registerLocaleData(en);
     UserAddComponent,
     SignUpComponent,
     AddBookComponent,
-    OrderListComponent
+    OrderListComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ registerLocaleData(en);
     NotifierModule,
     ReactiveFormsModule,
     NgZorroAntdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   bootstrap: [ AppComponent ],
   providers: [

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BASE_API, USER} from '../_globals/vars';
+import {BASE_API, CURRENT_USER, USER} from '../_globals/vars';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
@@ -11,6 +11,9 @@ export class UserService {
   }
   getAllUsers() {
     return this.http.get(BASE_API + USER);
+  }
+  getCurrentUser() {
+    return this.http.get(BASE_API + CURRENT_USER);
   }
 
   deleteUser(userId: number) {

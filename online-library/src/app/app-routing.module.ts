@@ -9,6 +9,8 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserAddComponent} from './user/user-add/user-add.component';
 import {AddBookComponent} from './add-book/add-book.component';
+import {OrderListComponent} from './order-list/order-list.component';
+import {OrderDetailsComponent} from './order-details/order-details.component';
 
 
 const routes: Routes = [
@@ -31,12 +33,20 @@ const routes: Routes = [
     component: UserListComponent,
   },
   {
-    path: 'book-add',
-    component: AddBookComponent ,
+    path: 'user-add',
+    component: UserAddComponent,
   },
   {
-    path: 'register',
-    component: LoginRegisterComponent,
+    path: 'order-list',
+    component: OrderListComponent,
+  },
+  {
+    path: 'order-details/:id',
+    component: OrderDetailsComponent,
+  },
+  {
+    path: 'book-add',
+    component: AddBookComponent ,
   },
   {
     path: 'list-books',
@@ -48,57 +58,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: ShoppingBagComponent,
   },
-  // {
-  //   path: 'register',
-  //   component: LoginRegisterComponent,
-  //   children: [
-  //     {
-  //       path: 'clients',
-  //       loadChildren: () => import('./client/client.module').then(m => m.ClientModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'systems',
-  //       loadChildren: () => import('./system/system.module').then(m => m.SystemModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'vendors',
-  //       loadChildren: () => import('./vendor/vendor.module').then(m => m.VendorModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'companies',
-  //       loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'users',
-  //       loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'roles',
-  //       loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'permissions',
-  //       loadChildren: () => import('./permissions/permissions.module').then(m => m.PermissionsModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'taxes',
-  //       loadChildren: () => import('./tax/tax.module').then(m => m.TaxModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     },
-  //     {
-  //       path: 'logs',
-  //       loadChildren: () => import('./log/log.module').then(m => m.LogModule),
-  //       canActivate: [AuthGuard, PermissionGuard]
-  //     }
-  //   ]
-  // },
 
 ];
 

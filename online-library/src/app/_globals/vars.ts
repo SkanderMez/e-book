@@ -6,3 +6,4 @@ export const USER = 'user';
 export const PRODUCTS = 'api/products';
 export const PICTURES = 'downloadFile';
 export const ORDER = 'api/orders';
+export const CURRENT_USER = 'me';
